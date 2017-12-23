@@ -1,0 +1,19 @@
+h1 {
+  display: block;
+  font: bold;
+  text-align: center;
+  color: #0af;
+  font-family: Helvetica Neue;
+}
+
+div {
+  text-align: center;
+}
+
+div .feed {
+  text-align: left;
+}
+
+button {
+  text-align: center;
+}
