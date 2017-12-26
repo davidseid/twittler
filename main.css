@@ -1,3 +1,11 @@
+/*
+1. each username, tweet, and date should be its own element
+2. together, the three should each be wrapped in their own element that i can move
+3. i would like all of these elements to be grouped together in a feed wrapper
+4. this feed wrapper should be centered
+*/ 
+
+
 h1 {
   display: block;
   font: bold;
@@ -6,14 +14,34 @@ h1 {
   font-family: Helvetica Neue;
 }
 
-div {
+h2.home {
+  display: block;
   text-align: center;
+  color: green;
+  font-family: Helvetica Neue;
 }
 
-div .feed {
-  text-align: left;
+
+section {
+  margin: 0 20%;
+  padding: 2%;
+  border: 1px solid yellow;
 }
 
+
+
+
+
+
+
+
+
+/*
 button {
   text-align: center;
+}
+*/
+
+body {
+  background-color: rgba(0,200,255,.15);
 }
