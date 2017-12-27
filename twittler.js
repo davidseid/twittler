@@ -1,9 +1,9 @@
 //DO:
-//Don't make different pages, should be able to hide/display user timelines on one page
+//hide/display user timelines on one page
 //Design HTML/CSS so into a clean feed
-//Make layout and style mesh across pages
 //Try different color per user
 //Add logo, copyright, etc.
+
 
 
 $(document).ready(function(){
@@ -14,20 +14,27 @@ $(document).ready(function(){
         
         // Creates function to add initial tweets
         var addTweet = function(index) {
+        
+          var $tweetElement = $('<div class="tweet"></div>');
+          $tweetElement.html('');
+          
           var tweet = streams.home[index];
           var username = tweet.user;
           var userhref = username + '.html';
+
+		  
           
-          var $username = $('<div><a href='+userhref+'>@'+username+': </a></div>');
-          var $tweet = $('<div></div>');
+          var $username = $('<div class="username"><a href='+userhref+'>@'+username+': </a></div>');
+          var $tweet = $('<div class="message"></div>');
           $tweet.text(tweet.message);
 
-          var $date = $('<div>'+tweet.created_at+'</div>');
+          var $date = $('<div class="date">'+tweet.created_at+'</div>');
           
-          $('<br />').prependTo($feed);
-          $date.prependTo($feed);
-          $tweet.prependTo($feed);
-          $username.prependTo($feed);
+          $date.prependTo($tweetElement);
+          $tweet.prependTo($tweetElement);
+          $username.prependTo($tweetElement);
+                              
+          $tweetElement.prependTo($feed);
         }
         
 
