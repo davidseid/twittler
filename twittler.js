@@ -16,8 +16,11 @@ $(document).ready(function(){
           var $username = $('<div class="username ' +username+'">@'+username+':</div>');
           var $tweet = $('<div class="message"></div>');
           $tweet.text(tweet.message);
+          
+          var humanFriendlyTime = moment(tweet.created_at, "LLLL").fromNow();
+          console.log(humanFriendlyTime);
 
-          var $date = $('<div class="date">'+tweet.created_at+'</div>');
+          var $date = $('<div class="date">'+humanFriendlyTime+'</div>');
           
           $date.prependTo($tweetElement);
           $tweet.prependTo($tweetElement);
