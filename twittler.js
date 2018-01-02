@@ -1,10 +1,3 @@
-//DO:
-//hide/display user timelines on one page
-//Design HTML/CSS so into a clean feed
-//Try different color per user
-//Add logo, copyright, etc.
-
-
 $(document).ready(function(){
         var $feed = $('.feed');
         $feed.html('');
@@ -95,15 +88,6 @@ $(document).ready(function(){
           // Create "Back to Home Feed" Button
           $(".button").fadeIn('very slow');
           
-          
-          //Need to make it so that the automatically updating tweets
-          // are filtered when the timeline is being displayed
-          
-          //Why aren't the newer usernames clickable?
-          
-          //Option 1: 
-          // Instead of just adding tweets to HTML, always first check 
-          // if there is a specific user selected, and only add those.
         });
         
         
