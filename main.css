@@ -17,11 +17,24 @@ h1 {
 
 h2.home {
   display: block;
-  text-align: center;
+  text-align: left;
   color: #78cacc;
   font-family: Helvetica Neue;
-  margin: 0;
+  margin: 0 21%;
   margin-bottom: .3em;
+}
+
+.button {
+  display: none;
+  margin: 0 20%;
+  float: right;
+}
+
+button {
+  color: black;
+  height: 2em;
+  font-family: Helvetica Neue;
+  border-radius: .5em;
 }
 
 section {

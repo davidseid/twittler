@@ -77,18 +77,35 @@ $(document).ready(function(){
         
         // When a user is clicked, hide tweets from all other users
         $(".username").on("click", function() {
+        
+          // Find the class of tweets to perserve
           var $classToPreserve = $(this).attr("class").slice(9);
           $classToPreserve = "." + $classToPreserve;
-          console.log($classToPreserve);          
           
-          
+          // Hide the other tweets
           var $tweetsToHide = $(".username").not($classToPreserve).closest(".tweet");
-          console.log($tweetsToHide);
           $tweetsToHide.fadeOut('slow');
           
-          // fade out home feed
-          // fade in "username" + timeline
+          // Change "Home Feed" to @username Timeline
+          $("h2").text("@"+$classToPreserve.slice(1)+"  Timeline");
           
+          // Create "Back to Home Feed" Button
+          $(".button").fadeIn('very slow');
+          
+          
+          //Need to make it so that the automatically updating tweets
+          // are filtered when the timeline is being displayed
+        });
+        
+        
+        // Back to Home Feed Functionality
+        $("button").on("click", function() {
+          
+          $(".button").fadeOut('very slow');
+          
+          $("h2").text("Home Feed");
+          
+          $(".tweet").fadeIn('slow');
           
         });
 
