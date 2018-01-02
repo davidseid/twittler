@@ -21,10 +21,7 @@ $(document).ready(function(){
           var tweet = streams.home[index];
           var username = tweet.user;
           var userhref = username + '.html';
-
-		  
-          
-          var $username = $('<div class="username"><a href='+userhref+'>@'+username+': </a></div>');
+          var $username = $('<div class="username ' +username+'">@'+username+':</div>');
           var $tweet = $('<div class="message"></div>');
           $tweet.text(tweet.message);
 
@@ -66,18 +63,35 @@ $(document).ready(function(){
         
         // Automatically add new tweets 
         var updateFeed = function() {
-          var newestTweet = $feed.contents()[1].innerHTML;
+          var newestTweet = $feed.contents().find(".message")[0].innerHTML;
           var nextTweet = streams.home[streams.home.length-1];
          
-          
           // only adds new tweets if not already on page
           if (newestTweet !== nextTweet.message) {
             addTweet(streams.home.length-1);
           }
-          console.log(streams.users.shawndrost[streams.users.shawndrost.length-1]);
         }
         
-        window.setInterval(updateFeed, 1500);
+        window.setInterval(updateFeed, 2000);
+        
+        
+        // When a user is clicked, hide tweets from all other users
+        $(".username").on("click", function() {
+          var $classToPreserve = $(this).attr("class").slice(9);
+          $classToPreserve = "." + $classToPreserve;
+          console.log($classToPreserve);          
+          
+          
+          var $tweetsToHide = $(".username").not($classToPreserve).closest(".tweet");
+          console.log($tweetsToHide);
+          $tweetsToHide.fadeOut('slow');
+          
+          // fade out home feed
+          // fade in "username" + timeline
+          
+          
+        });
+
 				
 
 });
