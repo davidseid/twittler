@@ -10,7 +10,7 @@ h1 {
   display: block;
   font: bold;
   text-align: center;
-  color: #8dd2b3;
+  color: #9edbf1;
   font-family: Helvetica Neue;
   margin-bottom: .3em;
 }
@@ -18,7 +18,7 @@ h1 {
 h2.home {
   display: block;
   text-align: left;
-  color: #78cacc;
+  color: #9edbf1;
   font-family: Helvetica Neue;
   margin: 0 21%;
   margin-bottom: .3em;
@@ -31,10 +31,13 @@ h2.home {
 }
 
 button {
-  color: black;
+  color: #9edbf1;
   height: 2em;
+  font-weight: bold;
+  font-size: 1em;
   font-family: Helvetica Neue;
   border-radius: .5em;
+  border: none;
 }
 
 section {
@@ -47,25 +50,28 @@ section {
 
 .tweet {
   margin-bottom: 20px;
-  border: 1px solid antiquewhite;
+  border: 1px solid white;
 }
 
 
 .username {
+  color: black;
   border: 1px solid white;
   font-size: 125%;
-  background-color: #f1e7b4;
+  background-color: #f3f9f9;
 }
 
 .message {
+  color: #9edbf1;
   border: 1px solid white;
   font-size: 200%;
-  background-color: antiquewhite;
+  background-color: white;
 }
 
 .date {
+  color: black;
   border: 1px solid white;
-  background-color: #f5c5ad;
+  background-color: #f3f9f9;
 }
 
 
@@ -81,5 +87,5 @@ button {
 */
 
 body {
-  background-color: #83b98f26;
+  background-color: #f3f9f9;
 }

@@ -72,7 +72,6 @@ $(document).ready(function(){
           }
         }
         
-        window.setInterval(updateFeed, 2000);
         
         
         // When a user is clicked, hide tweets from all other users
@@ -95,6 +94,10 @@ $(document).ready(function(){
           
           //Need to make it so that the automatically updating tweets
           // are filtered when the timeline is being displayed
+          
+          //Option 1: 
+          // Instead of just adding tweets to HTML, always first check 
+          // if there is a specific user selected, and only add those.
         });
         
         
@@ -109,6 +112,7 @@ $(document).ready(function(){
           
         });
 
-				
+		window.setInterval(updateFeed, 2000);
+		
 
 });
