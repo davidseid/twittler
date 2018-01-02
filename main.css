@@ -61,6 +61,10 @@ section {
   background-color: #f3f9f9;
 }
 
+.username:hover {
+  cursor: pointer;
+}
+
 .message {
   color: #9edbf1;
   border: 1px solid white;

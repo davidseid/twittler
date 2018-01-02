@@ -5,7 +5,6 @@
 //Add logo, copyright, etc.
 
 
-
 $(document).ready(function(){
         var $feed = $('.feed');
         $feed.html('');
@@ -66,16 +65,21 @@ $(document).ready(function(){
           var newestTweet = $feed.contents().find(".message")[0].innerHTML;
           var nextTweet = streams.home[streams.home.length-1];
          
-          // only adds new tweets if not already on page
-          if (newestTweet !== nextTweet.message) {
-            addTweet(streams.home.length-1);
+          // only add new tweets if on the home feed
+          if ($("h2").text() === "Home Feed") {
+            // only adds new tweets if not already on page
+            if (newestTweet !== nextTweet.message) {
+              addTweet(streams.home.length-1);
+            }
           }
+         
+          
         }
         
         
         
         // When a user is clicked, hide tweets from all other users
-        $(".username").on("click", function() {
+        $(".feed").on("click", ".username", function() {
         
           // Find the class of tweets to perserve
           var $classToPreserve = $(this).attr("class").slice(9);
@@ -94,6 +98,8 @@ $(document).ready(function(){
           
           //Need to make it so that the automatically updating tweets
           // are filtered when the timeline is being displayed
+          
+          //Why aren't the newer usernames clickable?
           
           //Option 1: 
           // Instead of just adding tweets to HTML, always first check 
