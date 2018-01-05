@@ -104,8 +104,12 @@ $(document).ready(function(){
           $(".tweet").fadeIn('slow');
           
         });
+        
 
 		window.setInterval(updateFeed, 2000);
+		
+		// set another interval function 
+		// this one periodically updates the display of the date
 		
 
 });
