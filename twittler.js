@@ -134,7 +134,22 @@ $(document).ready(function(){
 		
 		window.setInterval(updateDates, 1000);
 		
-		
+	    
+	    $('.userTweet').on('click', function(e) {
+	      e.preventDefault();
+	      var username = $('.usernameField').val();
+	      $('.usernameField').val('');
+	      var userInput = $('.tweetField').val();
+	      $('.tweetField').val('');
+	      visitor = username;
+	      streams.users[visitor] = [];
+	      writeTweet(userInput);
+	      addTweet(streams.home.length-1);
+	    });
+	    
+	    	    
+	    
+	    
 		
 
 });

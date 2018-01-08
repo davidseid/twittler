@@ -13,10 +13,8 @@
     
     <header>
 	  <h1> Twittler </h1>
-	  <div class="button">
-	    <button name="back">Back to Home Feed</button>
-	  </div>
-	  <h2 class="home">Home Feed</h2>
+	  
+	  
 	  
 	  <!--This is a button option, currently not in use
       <button type="button">Check for New Tweets</button>
@@ -24,8 +22,23 @@
     
 	</header>
     
-    
+    <section class="input">
+      <form>
+        <fieldset>
+          <input type="submit" class="userTweet" value="Tweet">
+          <legend>Username</legend>
+          <input type="text" label="Username" class="usernameField" placeholder="Your twittler handle">
+          <legend>Message</legend>
+          <input type="text" class="tweetField" placeholder="Tweet your heart away">
+        </fieldset>
+      </form>
+    </section>
+    <h2 class="home">Home Feed</h2>
+    <div class="button">
+	    <button name="back">Back to Home Feed</button>
+	</div>
     <section class="center">
+      
       <div class="feed">
       </div>
     </section>
