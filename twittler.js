@@ -1,5 +1,8 @@
 $(document).ready(function(){
+        
+        // creates a jquery object of all elements with class=feed
         var $feed = $('.feed');
+        // sets the html of the first feed element to an empty string
         $feed.html('');
         
         
@@ -7,25 +10,34 @@ $(document).ready(function(){
         // Creates function to add initial tweets
         var addTweet = function(index) {
         
-          var $tweetElement = $('<div class="tweet"></div>');
-          $tweetElement.html('');
+          // Creates a jquery object of div class tweet called $tweetElement
+          var $tweetElement = $('<div class="tweet"></div>');          
           
+          // gets the tweet object at the index from the streams
           var tweet = streams.home[index];
+          // gets the tweets username
           var username = tweet.user;
-          var userhref = username + '.html';
+          // Creates a jquery object with the username class and html
           var $username = $('<div class="username ' +username+'">@'+username+':</div>');
+          // Creates a jquery object div calss msg
           var $tweet = $('<div class="message"></div>');
+          // Sets the text of the tweet div to the msg of the tweet
           $tweet.text(tweet.message);
           
+          // Uses moment to get the created_at time and return its distance from now
           var humanFriendlyTime = moment(tweet.created_at, "LLLL").fromNow();
-          console.log(humanFriendlyTime);
 
+		  // Creates a jquery object with class date including the human friendly time
           var $date = $('<div class="date">'+humanFriendlyTime+'</div>');
           
+          // !!!!Attempts to store the created at info on the element itself
+          $date.data("timestamp", tweet.created_at);
+
+          
+          // Adds each of the divs to the tweet element
           $date.prependTo($tweetElement);
           $tweet.prependTo($tweetElement);
           $username.prependTo($tweetElement);
-                              
           $tweetElement.prependTo($feed);
         }
         
@@ -58,17 +70,19 @@ $(document).ready(function(){
         
         // Automatically add new tweets 
         var updateFeed = function() {
-          var newestTweet = $feed.contents().find(".message")[0].innerHTML;
+          
+          // finds the first message div element of the feed children, looks at innerhtml
+          var newestTweet = $feed.children().find(".message")[0].innerHTML;
+          // gets the most recent tweet from the streams code
           var nextTweet = streams.home[streams.home.length-1];
          
-          // only add new tweets if on the home feed
+          // if the h2 text is home feed
           if ($("h2").text() === "Home Feed") {
             // only adds new tweets if not already on page
             if (newestTweet !== nextTweet.message) {
               addTweet(streams.home.length-1);
             }
           }
-         
           
         }
         
@@ -108,8 +122,19 @@ $(document).ready(function(){
 
 		window.setInterval(updateFeed, 2000);
 		
-		// set another interval function 
-		// this one periodically updates the display of the date
+		
+		var updateDates = function() {
+	      var $date = $('.date');
+	      
+	      for (var i = 0; i < $date.length; i++) {
+	        var timestamp = $($date[i]).data('timestamp');
+	        $($date[i]).text(moment(timestamp, "LLLL").fromNow());
+	      }
+		}
+		
+		window.setInterval(updateDates, 1000);
+		
+		
 		
 
 });
